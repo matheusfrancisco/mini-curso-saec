@@ -1,4 +1,4 @@
-(ns learn-clj.web-simple.hello  ;; <1>
+(ns learn-clj.web_simple.hello  ;; <1>
   (:require [io.pedestal.http :as http]          ;; <2>
             [io.pedestal.http.route :as route])) ;; <3>
 

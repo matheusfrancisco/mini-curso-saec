@@ -4,7 +4,7 @@
             [io.pedestal.http.route :as route]
             [io.pedestal.http :as http]))
 
-
+;;;;;;;;;;;; config
 (defrecord Config [config]
   component/Lifecycle
   (start [this] this)
@@ -15,8 +15,9 @@
    :http-host (or (System/getenv "HTTP_HOST") "localhost")})
 
 (defn new-config [input-map] (map->Config {:config (or input-map config-map)}))
+;;;;;;;;;;;;;;;;;;;;;;;
 
-
+;;;;;;;;;;;;;;;;;;;; memory db
 (defrecord inMemoryDatabase
   [db]
   component/Lifecycle
@@ -27,6 +28,8 @@
 (defn create-new-db []
   (->inMemoryDatabase (atom {})))
 
+;;;;;;;;;;;;;;;;;;;; Routes
+
 (defrecord Routes [routes]
   component/Lifecycle
   (start [component]
@@ -35,6 +38,9 @@
 
 (defn new-routes [routes] (map->Routes {:routes routes}))
 
+;;;;;;;;;;;;;;;;;;;; Routes
+
+;;;;;;;;;;;;;;;;;;;; web service
 
 (defn- add-system [service]
   (before (fn [context] (assoc-in context [:request :components] service))))
@@ -89,3 +95,4 @@
 
 (defn new-webserver []
   (map->WebServer {}))
+;;;;;;;;;;;;;;;;;;;; web service

@@ -13,12 +13,12 @@
   (swap! system #(component/stop %)))
 
 
-(defn get-all-users! [storage]
-  @storage)
+(defn get-all-users! [db]
+  @db)
 
 (defn get-in-memory-database
-  [{{storage :storage} :components}]
-  (:storage storage))
+  [{{db :db} :components}]
+  (:db db))
 
 (defn get-all-users
   [request]

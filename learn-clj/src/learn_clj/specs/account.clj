@@ -2,6 +2,7 @@
   (:require [clojure.spec.alpha :as s])
   (:import (java.util UUID)))
 
+;;;https://github.com/plumatic/schema
 
 (s/def ::account-holder
   (s/keys :req [::account-id ::first-name ::email-address]

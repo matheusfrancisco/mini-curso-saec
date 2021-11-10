@@ -26,7 +26,7 @@
     component))
 
 (defn create-new-db []
-  (->inMemoryDatabase (atom {})))
+  (->inMemoryDatabase (atom [{:user/id 1 :user/name "Chico" :user/email "xico@xico.com.br"}])))
 
 ;;;;;;;;;;;;;;;;;;;; Routes
 
@@ -54,7 +54,7 @@
              #(vec (->> % (cons (add-system service))))))
 
 (defn base-service [routes config ]
-  {:env          :dev
+  {:env          :prod
    ::http/router :prefix-tree
    ::http/routes #(route/expand-routes (deref routes))
    ::http/type   :jetty
@@ -63,7 +63,7 @@
 
 (defn dev-init [service-map]
   (-> service-map
-      (merge {:env                   :dev
+      (merge {:env                   :prod
               ;; do not block thread that starts web server
               ::http/join?           false
               ;; Content Security Policy (CSP) is mostly turned off in dev mode

@@ -4,6 +4,11 @@
             [learn-clj.web.app :as app]
             [io.pedestal.service-tools.dev :as dev]))
 
+;;https://clojuredocs.org/clojure.core/defrecord
+;;atom
+;;component
+;;testing
+;;type-sistem
 
 (def system (atom nil))
 

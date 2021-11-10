@@ -2,9 +2,6 @@
 
 ;; println
 ;; define symbols
-;; let scope
-;; define functions
-
 
 ;;
 ;; print("meu print")
@@ -17,8 +14,16 @@
 (+ 1 2)
 ;;syntax
 ;; uniform structure
+;;def a symbol
+(def title "SEAC")
 
-;; control flow
+(def total 10)
+(println total)
+
+#_(if algo-que-evalua-truthly-or-falsily
+  ...
+  ...) ;; control flow
+
 (if true
   (str "verdade")
   (str "falso"))
@@ -41,6 +46,29 @@
 
 (when false
   (println 1))
+;;;
+(def x 10)
+;; good
+(cond
+  (= x 10) :ten
+  (= x 20) :twenty
+  (= x 30) :forty
+  :else :dunno)
+
+;; better
+(condp = x
+  10 :ten
+  20 :twenty
+  30 :forty
+  :dunno)
+
+;; best
+(case x
+  10 :ten
+  20 :twenty
+  30 :forty
+  :dunno)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (nil? 1)
 (nil? nil)
@@ -59,17 +87,16 @@
 (type nil)
 (type {})
 (type #{})
+
 ;; data structure
 
 ;;vetor = [1, 2, 3]
 
 (println [1 2 3 4])
 ;; num
+(println 1)
 ;; string
 
-;; def
-
-(def title "SEAC")
 
 ;; map
 (def meu-map {:first-name "Matheus"
@@ -78,7 +105,8 @@
 (def meu-map-2 (hash-map :name "Matheus" :title "Saec"))
 
 (get meu-map-2 :name)
-(get meu-map-2 :a "fails")
+(get meu-map-2 :a)
+(get meu-map-2 :a "not-found")
 
 
 (def pessoa {:pessoa {:first-name "Matheus"
@@ -93,17 +121,18 @@
 :run
 :>
 (type :a)
-
+;;primeiro parametro
 (:pessoa pessoa)
 (:pessoa nil)
 (:pessoa {})
 
-(:a pessoa "Nao tem")
+(:a pessoa "not-found")
 
 ;;vectors
-
 (get [1 2 3] 0)
 (get ["a" {:a 1} "c"] 1)
+([1 2 3]  0)
+
 
 (vector "test" "1" :a)
 
@@ -133,6 +162,5 @@
 
 ;;get
 ;;(:a #{:a :b})
-
-
-;; é melhor ter 100 funcoes operando em uma estrutura de dados do que 10 funcoes em 10 estrutura de dados.
+(conj {:a 2 :b 4} [:c 6])
+(conj {:firstname "John" :lastname "Doe"} {:age 25 :nationality "Chinese"})

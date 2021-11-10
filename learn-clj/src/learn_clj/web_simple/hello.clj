@@ -3,11 +3,11 @@
             [io.pedestal.http.route :as route])) ;; <3>
 
 (defn my-hello
-  []
+  [request]
   "Hello, world!")
 
 (defn respond-hello [request]          ;; <1>
-  {:status 200 :body (my-hello)}) ;; <2>
+  {:status 200 :body (my-hello request)}) ;; <2>
 
 (def routes
   (route/expand-routes                                   ;; <1>
@@ -23,4 +23,4 @@
   (http/start (create-server))) ;; <5>
 
 ;http://localhost:8890/greet
-;(start)
+(start)

@@ -16,7 +16,6 @@
 ;; uniform structure
 ;;def a symbol
 (def title "SEAC")
-
 (def total 10)
 (println total)
 

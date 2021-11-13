@@ -46,7 +46,7 @@
 
 
 
-#_(s/explain ::account-holder
+(s/explain-data ::account-holder
              {::first-name "x"
               ::last-name  "x"
               ::email      "x@x.spm"})

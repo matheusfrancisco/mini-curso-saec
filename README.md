@@ -1,6 +1,6 @@
 ## Mini curso de Clojure
 
-Mini curso de clojure para semana acad da UFSC campus Araranguá.
+Mini curso de clojure para semana acadêmica da UFSC campus Araranguá (curso engenharia  de computação )
 
 
 
